@@ -1,0 +1,98 @@
+jshell> char myChar = 'D';
+myChar ==> 'D'
+
+jshell> char myChar = 'DD';
+|  Error:
+|  unclosed character literal
+|  char myChar = 'DD';
+|                ^
+
+jshell> char myChar = 'D';
+myChar ==> 'D'
+
+jshell> char myUnicode = '\u0044';
+myUnicode ==> 'D'
+
+jshell> char myDecimalCode = 68;
+myDecimalCode ==> 'D'
+
+jshell> char mySimpleChar = '\u003F';
+mySimpleChar ==> '?'
+
+jshell> char mySimpleChar = '?';
+mySimpleChar ==> '?'
+
+jshell> char myUnicodeChar = '\u003F';
+myUnicodeChar ==> '?'
+
+jshell> char myUnicodeChar = '\u003F';
+myUnicodeChar ==> '?'
+
+jshell> char myDecimalChar = 63;
+myDecimalChar ==> '?'
+
+jshell> boolean myTrueBooleanValue = true;
+myTrueBooleanValue ==> true
+
+jshell> boolean myFalseBooleanValue = false;
+myFalseBooleanValue ==> false
+
+jshell> boolean isCustomerOverTwentyOne = false;
+isCustomerOverTwentyOne ==> false
+
+jshell> boolean hasChildren = true;
+hasChildren ==> true
+
+--------------------------------------------------------
+
+jshell> String myString = "This is a string";
+myString ==> "This is a string"
+
+jshell> System.outp.print("My String is euqal to: " + myString);
+|  Error:
+|  cannot find symbol
+|    symbol:   variable outp
+|  System.outp.print("My String is euqal to: " + myString);
+|  ^---------^
+
+jshell> System.out.print("My String is euqal to: " + myString);
+My String is euqal to: This is a string
+jshell> myString = myString + ", and this is more";
+myString ==> "This is a string, and this is more"
+
+jshell> myString = "I wish I had \u00241,000,000.00";
+myString ==> "I wish I had $1,000,000.00"
+
+jshell> {
+   ...>     String numberString = "250.55";
+   ...>     numberString = numberString + "49.45";
+   ...>     System.out.print(numberString);
+   ...> }
+250.5549.45
+jshell> int myInt = "10";
+|  Error:
+|  incompatible types: java.lang.String cannot be converted to int
+|  int myInt = "10";
+|              ^--^
+
+jshell> String lastString = "10"; int myInt = 50;
+lastString ==> "10"
+myInt ==> 50
+
+jshell> lastString = lastString + myInt;
+lastString ==> "1050"
+
+jshell> int test = lastString + myInt;
+|  Error:
+|  incompatible types: java.lang.String cannot be converted to int
+|  int test = lastString + myInt;
+|             ^----------------^
+
+jshell> double doubleNumber = 120.47; lastString = lastString + doubleNumber;
+doubleNumber ==> 120.47
+lastString ==> "1050120.47"
+
+Also:
+Strings are immutable - cannot be changed after it is created. When a new string is appended to an existing one, technically, the new string is not appended to the old one. Instead, a new string is created by Java. The new string consists of the previous value of the string plus the appended string. The net result is that that the string has the concatenated value of the old string and the appended value.
+String is a class
+StringBuilber is mutable but cannot be assigned a literal value or use a +
