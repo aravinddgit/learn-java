@@ -1,0 +1,122 @@
+jshell> int result = 1 + 2; // 1 + 2 = 3
+result ==> 3
+
+jshell> int previousResult = result;
+previousResult ==> 3
+
+jshell> result = result - 1; // 3 - 1 = 2
+result ==> 2
+
+jshell> System.out.print(previousResult);
+3
+jshell> char firstChar = 'A'; char secondChar = 'B';
+firstChar ==> 'A'
+secondChar ==> 'B'
+
+jshell> System.out.print(firstChar + secondChar);
+131
+jshell> System.out.print("" + firstChar + secondChar);
+AB
+jshell> result = 2;
+result ==> 2
+
+jshell> result = result * 10;
+result ==> 20
+
+jshell> result = result / 4;
+result ==> 5
+
+jshell> result = result % 3; // remainder or modulo operator
+result ==> 2
+
+---------------------------------------
+
+jshell> {
+   ...>     int result = 1;
+   ...>     result = result + 1;
+   ...>     System.out.print("result: " + result);
+   ...> }
+result: 2
+jshell> {
+   ...>     int result = 1;
+   ...>     result++;
+   ...>     System.out.print("result: " + result);
+   ...> }
+result: 2
+jshell> {
+   ...>     int result = 1;
+   ...>     result--;
+   ...>     System.out.print("result: " + result);
+   ...> }
+result: 0
+jshell> {
+   ...>     int result = 1;
+   ...>     result-=1;
+   ...>     System.out.print("result: " + result);
+   ...> }
+result: 0
+jshell> {
+   ...>     int result = 1;
+   ...>     result += 1;
+   ...>     System.out.print("result: " + result);
+   ...> }
+result: 2
+jshell> {
+   ...>     int result = 1;
+   ...>     result += 5;
+   ...>     System.out.print("result: " + result);
+   ...> }
+result: 6
+jshell> {
+   ...>     int result = 10;
+   ...>     result += 5;
+   ...>     System.out.print("result: " + result);
+   ...> }
+result: 15
+jshell> {
+   ...>     int result = 10;
+   ...>     result -= 5;
+   ...>     System.out.print("result: " + result);
+   ...> }
+result: 5
+jshell> {
+   ...>     int result = 10;
+   ...>     result -= 5.5;  // Implicit type cast is being done by the compound assignment operator
+   ...>     System.out.print("result: " + result);
+   ...> }
+result: 4
+jshell> {
+   ...>     int result = 10;
+   ...>     result = result - 5.5;
+   ...>     System.out.print("result: " + result);
+   ...> }
+|  Error:
+|  incompatible types: possible lossy conversion from double to int
+|      result = result - 5.5;
+|               ^----------^
+
+jshell> {
+   ...>     int result = 10;
+   ...>     result = (int) (result - 5.5);
+   ...>     System.out.print("result: " + result);
+   ...> }
+result: 4
+jshell> {
+   ...>     double result = 10; // using a double to prevent lossy conversion
+   ...>     result -= 5.5;
+   ...>     System.out.print("result: " + result);
+   ...> }
+result: 4.5
+jshell> {
+   ...>     double result = 10; // using a double to prevent lossy conversion
+   ...>     result *= 1.5;
+   ...>     System.out.print("result: " + result);
+   ...> }
+result: 15.0
+jshell> {
+   ...>     double result = 10; // using a double to prevent lossy conversion
+   ...>     result /= 1.5;
+   ...>     System.out.print("result: " + result);
+   ...> }
+result: 6.666666666666667
+jshell>
