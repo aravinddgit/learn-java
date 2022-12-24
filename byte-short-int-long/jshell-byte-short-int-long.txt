@@ -1,0 +1,175 @@
+```java
+|  Welcome to JShell -- Version 17.0.5
+|  For an introduction type: /help intro
+
+jshell> int myFirstNumber = (10 + 5) + (2 * 10);
+myFirstNumber ==> 35
+
+jshell> int mySecondNumber = 12;
+mySecondNumber ==> 12
+
+jshell> int myThirdNumber = 6;
+myThirdNumber ==> 6
+
+jshell> /var
+|    int myFirstNumber = 35
+|    int mySecondNumber = 12
+|    int myThirdNumber = 6
+
+jshell> int myTotal = myFirstNumber + mySecondNumber + myThirdNumber;
+myTotal ==> 53
+
+jshell> myThirdNumber = myFirstNumber * 2
+myThirdNumber ==> 70
+
+jshell> myTotal = myFirstNumber + mySecondNumber + myThirdNumber;
+myTotal ==> 117
+
+jshell> int myLastOne = 1000 - myTotal;
+myLastOne ==> 883
+
+jshell> System.out.print(myLastOne);
+883
+jshell> System.out.print(Interger.MIN_VALUE);
+|  Error:
+|  cannot find symbol
+|    symbol:   variable Interger
+|  System.out.print(Interger.MIN_VALUE);
+|                   ^------^
+
+jshell> System.out.print(Integer.MIN_VALUE);
+-2147483648
+jshell> System.out.print(Integer.MAX_VALUE);
+2147483647
+jshell> System.out.print("Integer min value: (" + Integer.MAX_VALUE + ") Integer max value: (" + Integer.MAX_VALUE + ")");
+Integer min value: (2147483647) Integer max value: (2147483647)
+jshell> System.out.print("Integer min value: (" + Integer.Min_VALUE + ") Integer max value: (" + Integer.MAX_VALUE + ")");
+|  Error:
+|  cannot find symbol
+|    symbol:   variable Min_VALUE
+|  System.out.print("Integer min value: (" + Integer.Min_VALUE + ") Integer max value: (" + Integer.MAX_VALUE + ")");
+|                                            ^---------------^
+
+jshell> System.out.print("Integer min value: (" + Integer.MIN_VALUE + ") Integer max value: (" + Integer.MAX_VALUE + ")");
+Integer min value: (-2147483648) Integer max value: (2147483647)
+jshell> int minIntValue = Integer.MIN_VALUE;
+minIntValue ==> -2147483648
+
+jshell> int maxIntValue = Integer.MAX_VALUE;
+maxIntValue ==> 2147483647
+
+jshell> System.out.print(minIntValue - 1);
+2147483647
+jshell> System.out.print(maxIntValue + 1);
+-2147483648
+jshell> int myIntTestValue = 2147483648;
+|  Error:
+|  integer number too large
+|  int myIntTestValue = 2147483648;
+|                       ^
+jshell> System.out.print(Integer.MAX_VALUE + 1);
+-2147483648
+jshell> System.out.print(2147483647 + 1);
+-2147483648
+jshell> System.out.print(Long.MAX_VALUE + 1)
+-9223372036854775808
+jshell> System.out.print(Long.MAX_VALUE)
+9223372036854775807
+jshell> System.out.print(9223372036854775807 + 1)
+|  Error:
+|  integer number too large
+|  System.out.print(9223372036854775807 + 1)
+|                   ^
+jshell> /list
+
+   1 : int myFirstNumber = (10 + 5) + (2 * 10);
+   2 : int mySecondNumber = 12;
+   3 : int myThirdNumber = 6;
+   4 : int myTotal = myFirstNumber + mySecondNumber + myThirdNumber;
+   5 : myThirdNumber = myFirstNumber * 2
+   6 : myTotal = myFirstNumber + mySecondNumber + myThirdNumber;
+   7 : int myLastOne = 1000 - myTotal;
+   8 : System.out.print(myLastOne);
+   9 : System.out.print(Integer.MIN_VALUE);
+  10 : System.out.print(Integer.MAX_VALUE);
+  11 : System.out.print("Integer min value: (" + Integer.MAX_VALUE + ") Integer max value: (" + Integer.MAX_VALUE + ")");
+  12 : System.out.print("Integer min value: (" + Integer.MIN_VALUE + ") Integer max value: (" + Integer.MAX_VALUE + ")");
+  13 : int minIntValue = Integer.MIN_VALUE;
+  14 : int maxIntValue = Integer.MAX_VALUE;
+  15 : System.out.print(minIntValue - 1);
+  16 : System.out.print(maxIntValue + 1);
+  17 : System.out.print(Integer.MAX_VALUE + 1);
+  18 : System.out.print(2147483647 + 1);
+
+jshell> /var
+|    int myFirstNumber = 35
+|    int mySecondNumber = 12
+|    int myThirdNumber = 70
+|    int myTotal = 117
+|    int myLastOne = 883
+|    int minIntValue = -2147483648
+|    int maxIntValue = 2147483647
+
+jshell> /vars
+|    int myFirstNumber = 35
+|    int mySecondNumber = 12
+|    int myThirdNumber = 70
+|    int myTotal = 117
+|    int myLastOne = 883
+|    int minIntValue = -2147483648
+|    int maxIntValue = 2147483647
+
+jshell> System.out.print("Byte min value: (" + Byte.MAX_VALUE + ") Byte max value: (" + Byte.MAX_VALUE + ")");
+Byte min value: (127) Byte max value: (127)
+jshell> System.out.print("Byte min value: (" + Byte.MIN_VALUE + ") Byte max value: (" + Byte.MAX_VALUE + ")");
+Byte min value: (-128) Byte max value: (127)
+jshell> System.out.print("Short min value: (" + Short.MIN_VALUE + ") Short max value: (" + Short.MAX_VALUE + ")");
+Short min value: (-32768) Short max value: (32767)
+jshell> System.out.print("Short min value: (" + Short.MIN_VALUE + ") Short max value: (" + Short. + ")");
+
+jshell> Sytem.out.print(Integer.SIZE)
+|  Error:
+|  package Sytem does not exist
+|  Sytem.out.print(Integer.SIZE)
+|  ^-------^
+
+jshell> System.out.print(Integer.SIZE)
+32
+jshell> System.out.print(Byte.SIZE)
+8
+jshell> System.out.print(Short.SIZE)
+16
+jshell> System.out.print("Long min value: (" + Long.MIN_VALUE + ") Long max value: (" + Long.MAX_VALUE + ")");
+Long min value: (-9223372036854775808) Long max value: (9223372036854775807)
+jshell> long myLongValue = 2147483647;
+myLongValue ==> 2147483647
+
+jshell> long myLongValue = 2147483648243;
+|  Error:
+|  integer number too large
+|  long myLongValue = 2147483648243;
+|                     ^
+
+jshell> long myLongValue = 2147483648;
+|  Error:
+|  integer number too large
+|  long myLongValue = 2147483648;
+|                     ^
+
+jshell> long myLongValue = 2147483648L;
+myLongValue ==> 2147483648
+
+jshell> short myShortValue = 32768;
+|  Error:
+|  incompatible types: possible lossy conversion from int to short
+|  short myShortValue = 32768;
+|                       ^---^
+
+jshell> short myShortValue = 32767;
+myShortValue ==> 32767
+
+jshell> short myShortValue = 32768S;
+|  Error:
+|  ';' expected
+|  short myShortValue = 32768S;
+```
