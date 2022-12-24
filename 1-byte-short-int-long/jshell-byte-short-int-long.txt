@@ -1,4 +1,3 @@
-```java
 |  Welcome to JShell -- Version 17.0.5
 |  For an introduction type: /help intro
 
@@ -172,4 +171,3 @@ jshell> short myShortValue = 32768S;
 |  Error:
 |  ';' expected
 |  short myShortValue = 32768S;
-```

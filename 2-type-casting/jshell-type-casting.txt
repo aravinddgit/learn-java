@@ -92,3 +92,70 @@ jshell> short myNewShortValue = (MyMinSortValue / 2);
 
 jshell> short myNewShortValue = (short)(MyMinSortValue / 2);
 myNewShortValue ==> -16384
+
+-------------------------------------------------------------
+
+jshell> System.out.print(Byte.MIN_VALUE + " TO " + Byte.MAX_VALUE);
+-128 TO 127
+jshell> System.out.print(Short.MIN_VALUE + " TO " + Short.MAX_VALUE);
+-32768 TO 32767
+jshell> byte byteVar = 125;
+byteVar ==> 125
+
+jshell> short shortVar = 32000;
+shortVar ==> 32000
+
+jshell> int intVar = 123456;
+intVar ==> 123456
+
+jshell> long longVar = 50000 + (10 * (byteVar + shortVar + intVar));
+longVar ==> 1605810
+
+jshell> long longVar = 50000L + (10L * (byteVar + shortVar + intVar));
+longVar ==> 1605810
+
+jshell> long longVar = 50000000 + (10 * (byteVar + shortVar + intVar));
+longVar ==> 51555810
+
+jshell> long longVar = 50000000000000 + (10 * (byteVar + shortVar + intVar));
+|  Error:
+|  integer number too large
+|  long longVar = 50000000000000 + (10 * (byteVar + shortVar + intVar));
+|                 ^
+
+jshell> System.out.print(Long.MIN_VALUE + " TO " + Long.MAX_VALUE);
+-9223372036854775808 TO 9223372036854775807
+jshell> long longVar = 50000000000000L + (10 * (byteVar + shortVar + intVar));
+longVar ==> 50000001555810
+
+jshell> long longVar = (long) (50000000000000 + (10 * (byteVar + shortVar + intVar)));
+|  Error:
+|  integer number too large
+|  long longVar = (long) (50000000000000 + (10 * (byteVar + shortVar + intVar)));
+|                         ^
+
+jshell> short shortTotal = (1000 + 10 * (byteValue + shortValue + intValue));
+|  Error:
+|  cannot find symbol
+|    symbol:   variable byteValue
+|  short shortTotal = (1000 + 10 * (byteValue + shortValue + intValue));
+|                                   ^-------^
+|  Error:
+|  cannot find symbol
+|    symbol:   variable shortValue
+|  short shortTotal = (1000 + 10 * (byteValue + shortValue + intValue));
+|                                               ^--------^
+|  Error:
+|  cannot find symbol
+|    symbol:   variable intValue
+|  short shortTotal = (1000 + 10 * (byteValue + shortValue + intValue));
+|                                                            ^------^
+
+jshell> short shortTotal = (1000 + 10 * (byteVar + shortVar + intVar));
+|  Error:
+|  incompatible types: possible lossy conversion from int to short
+|  short shortTotal = (1000 + 10 * (byteVar + shortVar + intVar));
+|                      ^---------------------------------------^
+
+jshell> short shortTotal = (short) (1000 + 10 * (byteVar + shortVar + intVar));
+shortTotal ==> -16054
