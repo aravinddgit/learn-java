@@ -1,0 +1,94 @@
+jshell> short MyMinSortValue = Short.MIN_VALUE; int myMinIntValue = Integer=MIN_VALUE;
+MyMinSortValue ==> -32768
+|  Error:
+|  cannot find symbol
+|    symbol:   variable Integer
+|   int myMinIntValue = Integer=MIN_VALUE;
+|                       ^-----^
+|  Error:
+|  cannot find symbol
+|    symbol:   variable MIN_VALUE
+|   int myMinIntValue = Integer=MIN_VALUE;
+|                               ^-------^
+
+jshell> short MyMinSortValue = Short.MIN_VALUE; int myMinIntValue = Integer.MIN_VALUE;
+MyMinSortValue ==> -32768
+myMinIntValue ==> -2147483648
+
+jshell> byte myMinByteValue = Byte.MIN_VALUE, myMaxByteValue = Byte.MAX_VALUE;
+myMinByteValue ==> -128
+myMaxByteValue ==> 127
+
+jshell> short firstShort = 1, int firstInteger = 2;
+|  Error:
+|  <identifier> expected
+|  short firstShort = 1, int firstInteger = 2;
+|                       ^
+
+jshell> short firstShort = 1; int firstInteger = 2;
+firstShort ==> 1
+firstInteger ==> 2
+
+jshell> byte firstByte = 1, byte secondByte = 2;
+|  Error:
+|  <identifier> expected
+|  byte firstByte = 1, byte secondByte = 2;
+|                     ^
+
+jshell> byte firstByte = 1, secondByte = 2;
+firstByte ==> 1
+secondByte ==> 2
+
+jshell> int myTotal = (myMinIntValue / 2);
+myTotal ==> -1073741824
+
+jshell> byte myNewByteValue = (myMinByteValue / 2);
+|  Error:
+|  incompatible types: possible lossy conversion from int to byte
+|  byte myNewByteValue = (myMinByteValue / 2);
+|                         ^----------------^
+
+jshell> byte myNewByteValue = (-128/2);
+myNewByteValue ==> -64
+
+jshell> byte myNewByteValue = (byte)(myMinByteValue / 2);
+myNewByteValue ==> -64
+
+jshell> short myNewShortValue = (myNewShortValue / 2);
+|  Error:
+|  incompatible types: possible lossy conversion from int to short
+|  short myNewShortValue = (myNewShortValue / 2);
+|                           ^-----------------^
+
+jshell> short myNewShortValue = (short) (myNewShortValue / 2);
+myNewShortValue ==> 0
+
+jshell> short myNewShortValue = (myNewSortValue / 2);
+|  Error:
+|  cannot find symbol
+|    symbol:   variable myNewSortValue
+|  short myNewShortValue = (myNewSortValue / 2);
+|                           ^------------^
+
+jshell> short myNewShortValue = (myMinSortValue / 2);
+|  Error:
+|  cannot find symbol
+|    symbol:   variable myMinSortValue
+|  short myNewShortValue = (myMinSortValue / 2);
+|                           ^------------^
+
+jshell> short myNewShortValue = (short)(myMinSortValue / 2);
+|  Error:
+|  cannot find symbol
+|    symbol:   variable myMinSortValue
+|  short myNewShortValue = (short)(myMinSortValue / 2);
+|                                  ^------------^
+
+jshell> short myNewShortValue = (MyMinSortValue / 2);
+|  Error:
+|  incompatible types: possible lossy conversion from int to short
+|  short myNewShortValue = (MyMinSortValue / 2);
+|                           ^----------------^
+
+jshell> short myNewShortValue = (short)(MyMinSortValue / 2);
+myNewShortValue ==> -16384
