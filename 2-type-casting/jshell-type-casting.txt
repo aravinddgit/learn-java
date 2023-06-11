@@ -1,16 +1,3 @@
-jshell> short MyMinSortValue = Short.MIN_VALUE; int myMinIntValue = Integer=MIN_VALUE;
-MyMinSortValue ==> -32768
-|  Error:
-|  cannot find symbol
-|    symbol:   variable Integer
-|   int myMinIntValue = Integer=MIN_VALUE;
-|                       ^-----^
-|  Error:
-|  cannot find symbol
-|    symbol:   variable MIN_VALUE
-|   int myMinIntValue = Integer=MIN_VALUE;
-|                               ^-------^
-
 jshell> short MyMinSortValue = Short.MIN_VALUE; int myMinIntValue = Integer.MIN_VALUE;
 MyMinSortValue ==> -32768
 myMinIntValue ==> -2147483648
@@ -42,6 +29,7 @@ secondByte ==> 2
 jshell> int myTotal = (myMinIntValue / 2);
 myTotal ==> -1073741824
 
+//If variables are used in the expression, then the expression will be evaluated as an Integer, by default. Even if the final value falls within the bounds of the datatype of the variable being assigned, typecasting is necessary.
 jshell> byte myNewByteValue = (myMinByteValue / 2);
 |  Error:
 |  incompatible types: possible lossy conversion from int to byte
@@ -93,7 +81,18 @@ jshell> short myNewShortValue = (MyMinSortValue / 2);
 jshell> short myNewShortValue = (short)(MyMinSortValue / 2);
 myNewShortValue ==> -16384
 
--------------------------------------------------------------
+jshell> int testNum1 = 10L + 20;
+|  Error:
+|  incompatible types: possible lossy conversion from long to int
+|  int testNum1 = 10L + 20;
+|                 ^------^
+
+// So this is what happens during numeric literal creation and assignment:
+/**
+	1. Check if the the numeric literal falls within the bounds of an Integer datatype
+	2. If variables are not used on the expression, Evaluate the expression and Check if value can be assigned to the datatype of the variable. Also, the datatype of an entire expression is assumed to be that of the "highest" datatype (double > float > long > int > short > byte). So if the variable being assigned has a datatype that is lower than that of the expression, then, a error regarding lossy conversion will be thrown
+	3. If variables are used in the expression, then the expression will be evaluated as an Integer, by default - if there is no higher datatype, say, long in the expression. In an expression, whichever is the higher datatype, the value of the expression is assumed to of that higher type. Even if the final value falls within the bounds of the datatype of the variable being assigned, typecasting is necessary if the dataype of the variable being assigned is lower than int.
+**/
 
 jshell> System.out.print(Byte.MIN_VALUE + " TO " + Byte.MAX_VALUE);
 -128 TO 127

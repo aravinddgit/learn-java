@@ -4,19 +4,27 @@ result ==> 3
 jshell> int previousResult = result;
 previousResult ==> 3
 
+// Even though the value of result is changesd, the value of previousResult will not change. It will still contain the original value assigned to it
 jshell> result = result - 1; // 3 - 1 = 2
 result ==> 2
 
 jshell> System.out.print(previousResult);
 3
+
+
 jshell> char firstChar = 'A'; char secondChar = 'B';
 firstChar ==> 'A'
 secondChar ==> 'B'
 
+// The addition of char variables will result in the addition of the decimal value of the unicode representation
 jshell> System.out.print(firstChar + secondChar);
 131
+
+// However, operations with String will convert the char to a string.
 jshell> System.out.print("" + firstChar + secondChar);
 AB
+
+
 jshell> result = 2;
 result ==> 2
 
@@ -29,7 +37,8 @@ result ==> 5
 jshell> result = result % 3; // remainder or modulo operator
 result ==> 2
 
----------------------------------------
+// None of the operators are applicable to Boolean
+// All of the operators are applicable to char as they are stored as decimal number values of their unicode representation.
 
 jshell> {
    ...>     int result = 1;
@@ -79,6 +88,18 @@ jshell> {
    ...>     System.out.print("result: " + result);
    ...> }
 result: 5
+
+/** Here, we can see that :
+x -= y
+is not actually
+x = x - y
+but rather
+x = (type of x) (x-y)
+since the datatypes of x and y are different.
+
+Note that, here, no error occurs though. If the expression was actually not using the abbreviated operators, an error would have occurred. i.e if we had used:
+x = x - y instead of x -= y , we would have got lossy conversion error instead of the an incorrect answer.
+**/
 jshell> {
    ...>     int result = 10;
    ...>     result -= 5.5;  // Implicit type cast is being done by the compound assignment operator

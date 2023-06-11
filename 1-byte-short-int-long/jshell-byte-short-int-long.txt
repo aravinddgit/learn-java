@@ -1,5 +1,50 @@
+```java
+C:\Users\Aravind Dinakaran>jshell
 |  Welcome to JShell -- Version 17.0.5
 |  For an introduction type: /help intro
+
+
+PS C:\Users\Aravind Dinakaran> jshell
+|  Welcome to JShell -- Version 17.0.5
+|  For an introduction type: /help intro
+
+jshell> system.out.print("Hello world");
+|  Error:
+|  package system does not exist
+|  system.out.print("Hello world");
+|  ^--------^
+
+// Use capital S - Java code is case sensitive
+jshell> System.out.print("Hello world");
+Hello world
+jshell>
+
+// Declare a variable first using the appropriate datatype
+jshell> myFirstNumber = 12;
+|  Error:
+|  cannot find symbol
+|    symbol:   variable myFirstNumber
+|  myFirstNumber = 12;
+|  ^-----------^
+
+jshell> int myFirstNumber = 12;
+myFirstNumber ==> 12
+
+jshell> System.out.print(myFirstNumber);
+12
+jshell> myFirstNumber = 1000;
+myFirstNumber ==> 1000
+
+jshell> System.out.print(myFirstNumber);
+1000
+
+// jshell allows redeclaration of variables, but the java compiler will not allow that
+jshell> int myFirstNumber = 20;
+myFirstNumber ==> 20
+
+jshell> System.out.print(myFirstNumber);
+20
+jshell>
 
 jshell> int myFirstNumber = (10 + 5) + (2 * 10);
 myFirstNumber ==> 35
@@ -29,17 +74,26 @@ myLastOne ==> 883
 
 jshell> System.out.print(myLastOne);
 883
-jshell> System.out.print(Interger.MIN_VALUE);
-|  Error:
-|  cannot find symbol
-|    symbol:   variable Interger
-|  System.out.print(Interger.MIN_VALUE);
-|                   ^------^
 
+// Integer is a wrapper class. There are eight primitive data types. All these data types have a wrapper class. Wrapper classes are used store some info about the data type itself
 jshell> System.out.print(Integer.MIN_VALUE);
 -2147483648
 jshell> System.out.print(Integer.MAX_VALUE);
 2147483647
+
+//Eight datatypes:
+/**
+	1. byte - Byte
+	2. char - Character
+	3. short - Short
+	4. int - Integer
+	5. long - Long
+	6. float - Float
+	7. double - Double
+	8. boolean - Boolean
+**/
+
+// String concatenation
 jshell> System.out.print("Integer min value: (" + Integer.MAX_VALUE + ") Integer max value: (" + Integer.MAX_VALUE + ")");
 Integer min value: (2147483647) Integer max value: (2147483647)
 jshell> System.out.print("Integer min value: (" + Integer.Min_VALUE + ") Integer max value: (" + Integer.MAX_VALUE + ")");
@@ -57,15 +111,27 @@ minIntValue ==> -2147483648
 jshell> int maxIntValue = Integer.MAX_VALUE;
 maxIntValue ==> 2147483647
 
+// Undeflow
 jshell> System.out.print(minIntValue - 1);
 2147483647
+
+//Overflow
 jshell> System.out.print(maxIntValue + 1);
 -2147483648
+
+//Overflow and underflow occurs only in the case of expressions. When expressions are evaluated, Java compiler does not evaluate the expression and determine its value. But error is thrown when trying to assign numeric literals beyond the capacity of the datatype.
 jshell> int myIntTestValue = 2147483648;
 |  Error:
 |  integer number too large
 |  int myIntTestValue = 2147483648;
 |                       ^
+
+// _ can be used to improve readabiblity instead of commas
+jshell> int testVar = 2_123_456;
+testVar ==> 2123456
+
+
+
 jshell> System.out.print(Integer.MAX_VALUE + 1);
 -2147483648
 jshell> System.out.print(2147483647 + 1);
@@ -126,12 +192,6 @@ jshell> System.out.print("Short min value: (" + Short.MIN_VALUE + ") Short max v
 Short min value: (-32768) Short max value: (32767)
 jshell> System.out.print("Short min value: (" + Short.MIN_VALUE + ") Short max value: (" + Short. + ")");
 
-jshell> Sytem.out.print(Integer.SIZE)
-|  Error:
-|  package Sytem does not exist
-|  Sytem.out.print(Integer.SIZE)
-|  ^-------^
-
 jshell> System.out.print(Integer.SIZE)
 32
 jshell> System.out.print(Byte.SIZE)
@@ -143,6 +203,7 @@ Long min value: (-9223372036854775808) Long max value: (9223372036854775807)
 jshell> long myLongValue = 2147483647;
 myLongValue ==> 2147483647
 
+// Numeric literals are by default, Integers. So, if we include a value greater than Integer.MAX_VALUE or lesser than Integer.MIN_VALUE, it is going to be an error. To include such a value, include a L or l suffix to denote that it's a 'long' value.
 jshell> long myLongValue = 2147483648243;
 |  Error:
 |  integer number too large
@@ -158,6 +219,7 @@ jshell> long myLongValue = 2147483648;
 jshell> long myLongValue = 2147483648L;
 myLongValue ==> 2147483648
 
+// We cannot assign an integer value not within "short"'s capacity to a short
 jshell> short myShortValue = 32768;
 |  Error:
 |  incompatible types: possible lossy conversion from int to short
@@ -171,3 +233,21 @@ jshell> short myShortValue = 32768S;
 |  Error:
 |  ';' expected
 |  short myShortValue = 32768S;
+```
+// When expressions are involved, overflow and underflow occurs
+jshell> int testVar = 2_123_456 + Integer.MAX_VALUE;
+testVar ==> -2145360193
+
+// The overflown value cannot be accommodated within a short
+jshell> short testVar2 = 2_123_456 + Integer.MAX_VALUE;
+|  Error:
+|  incompatible types: possible lossy conversion from int to short
+|  short testVar2 = 2_123_456 + Integer.MAX_VALUE;
+|                   ^---------------------------^
+
+
+// So this is what happens during numeric literal creation and assignment:
+/**
+	1. Check if the the numeric literal falls within the bounds of an Integer datatype
+	2. Check if value can be assigned to the datatype of the variable
+**/ // Check out the end of next chapter as well

@@ -1,6 +1,7 @@
 jshell> char myChar = 'D';
 myChar ==> 'D'
 
+// Charater literal
 jshell> char myChar = 'DD';
 |  Error:
 |  unclosed character literal
@@ -10,9 +11,11 @@ jshell> char myChar = 'DD';
 jshell> char myChar = 'D';
 myChar ==> 'D'
 
+// Using the hex value of unicode characters to store a character in a var with char datatype.
 jshell> char myUnicode = '\u0044';
 myUnicode ==> 'D'
 
+// We can also use the decimal value of unicode characters
 jshell> char myDecimalCode = 68;
 myDecimalCode ==> 'D'
 
@@ -43,8 +46,7 @@ isCustomerOverTwentyOne ==> false
 jshell> boolean hasChildren = true;
 hasChildren ==> true
 
---------------------------------------------------------
-
+// String is not a primitive datatype but a class. However, Java allows the use of String like a primitive datatype. So, it is like a special class.
 jshell> String myString = "This is a string";
 myString ==> "This is a string"
 
@@ -79,6 +81,7 @@ jshell> String lastString = "10"; int myInt = 50;
 lastString ==> "10"
 myInt ==> 50
 
+// Operations with string converts integer to String
 jshell> lastString = lastString + myInt;
 lastString ==> "1050"
 
@@ -88,11 +91,15 @@ jshell> int test = lastString + myInt;
 |  int test = lastString + myInt;
 |             ^----------------^
 
+// Operations with string converts a double to a string as well.
 jshell> double doubleNumber = 120.47; lastString = lastString + doubleNumber;
 doubleNumber ==> 120.47
 lastString ==> "1050120.47"
 
+/**
 Also:
-Strings are immutable - cannot be changed after it is created. When a new string is appended to an existing one, technically, the new string is not appended to the old one. Instead, a new string is created by Java. The new string consists of the previous value of the string plus the appended string. The net result is that that the string has the concatenated value of the old string and the appended value.
-String is a class
-StringBuilber is mutable but cannot be assigned a literal value or use a +
+String are immutable
+String is not a primitive datatype but a class. However, Java allows the use of String like a primitive datatype. So, it is like a special class.
+StringBuilber is mutable but cannot be assigned a literal value or use a +. To be explained later.
+**/
+

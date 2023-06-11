@@ -1,5 +1,7 @@
 jshell> System.out.print("Float range: " + Float.MIN_VALUE + " to " + Float.MAX_VALUE);
 Float range: 1.4E-45 to 3.4028235E38
+// method to read scientific notation: 1.4E-45 = 1.4 x 10^(-45) => Basically, replace E with (x 10^)
+
 jshell> System.out.print("Double range: " + Double.MIN_VALUE + " to " + Double.MAX_VALUE);
 Double range: 4.9E-324 to 1.7976931348623157E308
 jshell> int myIntValue = 5; float myFloatValue = 5; double myDoubleValue = 5;
@@ -13,6 +15,7 @@ myFloatValue ==> 5.0
 jshell> myDoubleValue = 5d;
 myDoubleValue ==> 5.0
 
+// The default datatype for a decimal number is double. So, when a decimal literal is used, it is recognized as a double, so while assigning it to a float, make sure that it is being type casted or an F suffix is included.
 jshell> float myOtherFloatValue = 5.25;
 |  Error:
 |  incompatible types: possible lossy conversion from double to float
@@ -25,7 +28,13 @@ myOtherFloatValue ==> 5.25
 jshell> float myOtherFloatValue = (float) 5.25;
 myOtherFloatValue ==> 5.25
 
-------------------------------------------------------------------------------
+// Double's length is 64 bits
+jshell> System.out.print(Double.SIZE);
+64
+
+// Float's length is 32 bits
+jshell> System.out.print(Float.SIZE);
+32
 
 jshell> System.out.print("Float range: " + Float.MIN_VALUE + " to " + Float.MAX_VALUE);
 Float range: 1.4E-45 to 3.4028235E38
@@ -72,6 +81,8 @@ myFloatValue ==> 1.6666666
 jshell> myDoubleValue = 5d / 3d;
 myDoubleValue ==> 1.6666666666666667
 
+
+// The value of the result of float and the double datatype in memory is actually more than what is printed in the console.
 jshell> myDoubleValue = 5.0 / 3.0;
 myDoubleValue ==> 1.6666666666666667
 
@@ -98,3 +109,5 @@ anotherNumber ==> 3000000.456789
 
 jshell> double anotherNumber = 3_000_000.4_567_890d;
 anotherNumber ==> 3000000.456789
+
+// Note: For better precision in Java, use the class called "BigDecimal" rather than even double. To be explained in future exercises.
