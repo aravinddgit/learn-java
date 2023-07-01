@@ -1,4 +1,4 @@
-public class Main{
+public class MethodOverloading{
     public static void main(String[] args) {
         System.out.println("Method 1: " + calculateScore("Aravind", 500));
         System.out.println("Overloading 1: " + calculateScore(500));
